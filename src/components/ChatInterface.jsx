@@ -122,6 +122,10 @@ export default function ChatInterface({ language }) {
   const messagesRef = useRef([]);
   const hasKickedOff = useRef(false);
 
+  // Derived display value — defined early so useEffects below can reference it
+  // (re-assigned with same value near the return as well for readability)
+  const displayMessage = streamingText || currentMessage;
+
   const handleAgentResponse = (fullText) => {
     const { message, quickReplies: qr, showOrderCta: orderCta, recommendedProduct: prod, productPrice: price } = parseAgentContent(fullText);
     setCurrentMessage(message);
@@ -246,8 +250,6 @@ export default function ChatInterface({ language }) {
     setInput('');
     handleReply(msg);
   };
-
-  const displayMessage = streamingText || currentMessage;
 
   return (
     // Full-height flex column: hero takes natural height, chat panel fills the rest
