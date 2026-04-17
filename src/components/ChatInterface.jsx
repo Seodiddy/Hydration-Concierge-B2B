@@ -252,13 +252,13 @@ export default function ChatInterface({ language }) {
   };
 
   return (
-    // Full-height flex column: hero takes natural height, chat panel fills the rest
-    <div style={{ background: 'var(--h2-bg)', height: '100vh', display: 'flex', flexDirection: 'column', overflow: 'hidden' }}>
+    <div style={{ background: 'var(--h2-bg)', minHeight: '100vh' }}>
       <HeroSection language={language} compact={false} />
 
-      {/* ── Chat panel: fills remaining viewport height, no reflow possible ── */}
-      {showOrderCta && !loading ? (
-        <div style={{ flex: 1, overflowY: 'auto' }}>
+      {/* ── B2C-identical spacing: pt-6/pt-10 · mb-8 text · mt-4 replies ── */}
+      <div className="pt-6 md:pt-10">
+
+        {showOrderCta && !loading ? (
           <DeviceOrderCTA
             language={language}
             quickReplies={quickReplies}
@@ -266,98 +266,95 @@ export default function ChatInterface({ language }) {
             recommendedProduct={recommendedProduct}
             productPrice={productPrice}
           />
-        </div>
-      ) : (
-        <div
-          className="w-full max-w-4xl mx-auto px-4 md:px-6"
-          style={{ flex: 1, display: 'flex', flexDirection: 'column', overflow: 'hidden' }}
-        >
-          {/* Text area: scrollable, top-aligned — no giant gaps */}
-          <div
-            style={{ flex: 1, overflowY: 'auto' }}
-            className="text-center pt-8 pb-2"
-          >
-            {loading && !streamingText ? (
-              <div className="flex flex-col items-center justify-center gap-4">
-                {sentReply && (
-                  <div
-                    className="px-5 py-3 rounded-2xl text-sm font-medium mb-2"
-                    style={{
-                      background: 'color-mix(in srgb, var(--h2-primary) 10%, transparent)',
-                      border: '1px solid color-mix(in srgb, var(--h2-primary) 30%, transparent)',
-                      color: 'var(--h2-primary-darker)',
-                    }}
-                  >
-                    ✓ {sentReply}
-                  </div>
-                )}
-                <div className="flex items-center justify-center gap-2">
-                  <span className="h2-dot" />
-                  <span className="h2-dot" style={{ animationDelay: '0.15s' }} />
-                  <span className="h2-dot" style={{ animationDelay: '0.3s' }} />
-                </div>
-              </div>
-            ) : (
-              <div
-                className="transition-opacity duration-300"
-                style={{ opacity: textVisible ? 1 : 0 }}
-              >
-                {renderMessage(displayMessage)}
-              </div>
-            )}
-          </div>
+        ) : (
+          <div className="w-full max-w-4xl mx-auto px-4 md:px-6 pb-8">
 
-          {/* Interaction zone: always at the bottom of the chat panel, never moves */}
-          <div className="pb-6 pt-3" style={{ flexShrink: 0 }}>
-            {/* Quick reply pills */}
+            {/* Text — identical to B2C QuestionScreen */}
+            <div className="text-center mb-8">
+              {loading && !streamingText ? (
+                <div className="flex flex-col items-center justify-center gap-4 py-4">
+                  {sentReply && (
+                    <div
+                      className="px-5 py-3 rounded-2xl text-sm font-medium mb-2"
+                      style={{
+                        background: 'color-mix(in srgb, var(--h2-primary) 10%, transparent)',
+                        border: '1px solid color-mix(in srgb, var(--h2-primary) 30%, transparent)',
+                        color: 'var(--h2-primary-darker)',
+                      }}
+                    >
+                      ✓ {sentReply}
+                    </div>
+                  )}
+                  <div className="flex items-center justify-center gap-2">
+                    <span className="h2-dot" />
+                    <span className="h2-dot" style={{ animationDelay: '0.15s' }} />
+                    <span className="h2-dot" style={{ animationDelay: '0.3s' }} />
+                  </div>
+                </div>
+              ) : (
+                <div className="transition-opacity duration-300" style={{ opacity: textVisible ? 1 : 0 }}>
+                  {renderMessage(displayMessage)}
+                </div>
+              )}
+            </div>
+
+            {/* Quick replies — identical to B2C QuestionScreen */}
             {!loading && quickReplies?.length > 0 && (
               <div
-                className="flex flex-wrap justify-center gap-3 mb-4 transition-all duration-400"
-                style={{ opacity: repliesVisible ? 1 : 0, transform: repliesVisible ? 'translateY(0)' : 'translateY(8px)' }}
+                className="w-full max-w-3xl mx-auto mt-4 transition-all duration-500"
+                style={{ opacity: repliesVisible ? 1 : 0, transform: repliesVisible ? 'translateY(0)' : 'translateY(12px)' }}
               >
-                {quickReplies.map((reply, idx) => (
-                  <button key={`${reply}-${idx}`} onClick={() => handleReply(reply)} className="h2-pill">
-                    {reply}
+                <div className="flex flex-wrap justify-center gap-3 mb-5">
+                  {quickReplies.map((reply, idx) => (
+                    <button key={`${reply}-${idx}`} onClick={() => handleReply(reply)} className="h2-pill">
+                      {reply}
+                    </button>
+                  ))}
+                </div>
+                <div className="flex gap-2 max-w-xl mx-auto">
+                  <input
+                    value={input}
+                    onChange={(e) => setInput(e.target.value)}
+                    onKeyDown={(e) => e.key === 'Enter' && handleSend()}
+                    placeholder={t.typeYourOwn}
+                    className="h2-input flex-1"
+                  />
+                  <button onClick={handleSend} disabled={!input.trim()} className="h2-cta" style={{ padding: '12px 18px' }} aria-label="Send">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <line x1="22" y1="2" x2="11" y2="13" /><polygon points="22 2 15 22 11 13 2 9 22 2" />
+                    </svg>
                   </button>
-                ))}
+                </div>
               </div>
             )}
 
-            {/* Free-text input */}
-            {(started || loading) && (
-              <div className="flex gap-2 max-w-xl mx-auto">
+            {/* Free-text only (no quick replies) */}
+            {!loading && quickReplies?.length === 0 && displayMessage && (
+              <div className="flex gap-2 max-w-xl mx-auto mt-4">
                 <input
                   value={input}
                   onChange={(e) => setInput(e.target.value)}
                   onKeyDown={(e) => e.key === 'Enter' && handleSend()}
                   placeholder={t.typeYourOwn}
                   className="h2-input flex-1"
-                  disabled={loading}
                 />
-                <button
-                  onClick={handleSend}
-                  disabled={!input.trim() || loading}
-                  className="h2-cta"
-                  style={{ padding: '12px 18px' }}
-                  aria-label="Send"
-                >
+                <button onClick={handleSend} disabled={!input.trim()} className="h2-cta" style={{ padding: '12px 18px' }} aria-label="Send">
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <line x1="22" y1="2" x2="11" y2="13" />
-                    <polygon points="22 2 15 22 11 13 2 9 22 2" />
+                    <line x1="22" y1="2" x2="11" y2="13" /><polygon points="22 2 15 22 11 13 2 9 22 2" />
                   </svg>
                 </button>
               </div>
             )}
 
-            {/* Medical disclaimer */}
-            {started && (
-              <p className="text-xs text-center mt-3" style={{ color: 'var(--h2-muted-soft)', lineHeight: 1.6 }}>
-                {t.disclaimer}
-              </p>
-            )}
           </div>
-        </div>
-      )}
+        )}
+
+        {started && (
+          <div className="w-full max-w-3xl mx-auto px-4 md:px-6 pb-12">
+            <p className="text-xs text-center" style={{ color: 'var(--h2-muted-soft)', lineHeight: 1.6 }}>{t.disclaimer}</p>
+          </div>
+        )}
+      </div>
     </div>
   );
 }
