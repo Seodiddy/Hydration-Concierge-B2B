@@ -272,10 +272,10 @@ export default function ChatInterface({ language }) {
           className="w-full max-w-4xl mx-auto px-4 md:px-6"
           style={{ flex: 1, display: 'flex', flexDirection: 'column', overflow: 'hidden' }}
         >
-          {/* Text area: scrollable, fills available space */}
+          {/* Text area: scrollable, top-aligned — no giant gaps */}
           <div
-            style={{ flex: 1, overflowY: 'auto', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}
-            className="text-center py-6"
+            style={{ flex: 1, overflowY: 'auto' }}
+            className="text-center pt-8 pb-2"
           >
             {loading && !streamingText ? (
               <div className="flex flex-col items-center justify-center gap-4">

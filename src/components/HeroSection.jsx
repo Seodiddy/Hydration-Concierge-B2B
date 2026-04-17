@@ -51,8 +51,8 @@ export default function HeroSection({ language, compact }) {
 
   return (
     <section
-      className="relative w-full flex flex-col items-center justify-center text-center px-4 md:px-6 pt-20 md:pt-12"
-      style={{ minHeight: '36vh', background: 'var(--h2-bg)' }}
+      className="relative w-full flex flex-col items-center justify-center text-center px-4 md:px-6 pt-10 md:pt-8"
+      style={{ background: 'var(--h2-bg)', flexShrink: 0 }}
     >
       {/* Logo top-left */}
       <div className="absolute top-4 left-4 md:top-6 md:left-10 z-20">
@@ -81,7 +81,7 @@ export default function HeroSection({ language, compact }) {
         }}
       />
 
-      <div className="relative z-10 max-w-3xl mx-auto py-10 md:py-24">
+      <div className="relative z-10 max-w-3xl mx-auto py-6 md:py-8">
         <h1
           className="mb-4 md:mb-5 text-3xl md:text-6xl font-bold tracking-tight leading-[1.1]"
           style={{ color: 'var(--h2-text)' }}
