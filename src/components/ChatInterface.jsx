@@ -235,23 +235,33 @@ export default function ChatInterface({ language }) {
   const displayMessage = streamingText || currentMessage;
 
   return (
-    <div style={{ background: 'var(--h2-bg)', minHeight: '100vh' }}>
+    // Full-height flex column: hero takes natural height, chat panel fills the rest
+    <div style={{ background: 'var(--h2-bg)', height: '100vh', display: 'flex', flexDirection: 'column', overflow: 'hidden' }}>
       <HeroSection language={language} compact={false} />
 
-      {/* Two-zone layout: fixed text zone + fixed interaction zone — no reflow */}
-      <div className="pt-6 md:pt-10">
-
+      {/* ── Chat panel: fills remaining viewport height, no reflow possible ── */}
+      {showOrderCta && !loading ? (
+        <div style={{ flex: 1, overflowY: 'auto' }}>
+          <DeviceOrderCTA
+            language={language}
+            quickReplies={quickReplies}
+            onReply={handleReply}
+            recommendedProduct={recommendedProduct}
+            productPrice={productPrice}
+          />
+        </div>
+      ) : (
         <div
           className="w-full max-w-4xl mx-auto px-4 md:px-6"
-          style={{ minHeight: '55vh' }}
+          style={{ flex: 1, display: 'flex', flexDirection: 'column', overflow: 'hidden' }}
         >
-          {/* Fixed-height text zone — prevents layout shift as text builds up */}
+          {/* Text area: scrollable, fills available space */}
           <div
-            className="text-center mb-8 flex flex-col justify-center"
-            style={{ minHeight: '180px' }}
+            style={{ flex: 1, overflowY: 'auto', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}
+            className="text-center py-6"
           >
             {loading && !streamingText ? (
-              <div className="flex flex-col items-center justify-center gap-4 py-4">
+              <div className="flex flex-col items-center justify-center gap-4">
                 {sentReply && (
                   <div
                     className="px-5 py-3 rounded-2xl text-sm font-medium mb-2"
@@ -275,78 +285,55 @@ export default function ChatInterface({ language }) {
             )}
           </div>
 
-        </div>
-
-        {/* Device order CTA — appears when agent recommends a product */}
-        {showOrderCta && !loading && (
-          <DeviceOrderCTA
-            language={language}
-            quickReplies={quickReplies}
-            onReply={handleReply}
-            recommendedProduct={recommendedProduct}
-            productPrice={productPrice}
-          />
-        )}
-
-        {/* Medical disclaimer */}
-        {started && (
-          <div className="w-full max-w-3xl mx-auto px-4 md:px-6 pb-24">
-            <p className="text-xs text-center" style={{ color: 'var(--h2-muted-soft)', lineHeight: 1.6 }}>
-              {t.disclaimer}
-            </p>
-          </div>
-        )}
-      </div>
-
-      {/* ── Sticky interaction bar ── fixed to bottom, never shifts with text */}
-      {!showOrderCta && (
-        <div
-          className="fixed bottom-0 left-0 right-0 z-40 pb-4 pt-3"
-          style={{
-            background: 'linear-gradient(to top, var(--h2-bg) 70%, transparent)',
-          }}
-        >
-          {/* Quick reply pills */}
-          {!loading && quickReplies?.length > 0 && (
-            <div
-              className="w-full max-w-3xl mx-auto px-4 mb-3 transition-all duration-500"
-              style={{ opacity: repliesVisible ? 1 : 0, transform: repliesVisible ? 'translateY(0)' : 'translateY(10px)' }}
-            >
-              <div className="flex flex-wrap justify-center gap-2">
+          {/* Interaction zone: always at the bottom of the chat panel, never moves */}
+          <div className="pb-6 pt-3" style={{ flexShrink: 0 }}>
+            {/* Quick reply pills */}
+            {!loading && quickReplies?.length > 0 && (
+              <div
+                className="flex flex-wrap justify-center gap-3 mb-4 transition-all duration-400"
+                style={{ opacity: repliesVisible ? 1 : 0, transform: repliesVisible ? 'translateY(0)' : 'translateY(8px)' }}
+              >
                 {quickReplies.map((reply, idx) => (
                   <button key={`${reply}-${idx}`} onClick={() => handleReply(reply)} className="h2-pill">
                     {reply}
                   </button>
                 ))}
               </div>
-            </div>
-          )}
+            )}
 
-          {/* Free-text input — always visible once chat has started */}
-          {(started || loading) && (
-            <div className="flex gap-2 max-w-xl mx-auto px-4">
-              <input
-                value={input}
-                onChange={(e) => setInput(e.target.value)}
-                onKeyDown={(e) => e.key === 'Enter' && handleSend()}
-                placeholder={t.typeYourOwn}
-                className="h2-input flex-1"
-                disabled={loading}
-              />
-              <button
-                onClick={handleSend}
-                disabled={!input.trim() || loading}
-                className="h2-cta"
-                style={{ padding: '12px 18px' }}
-                aria-label="Send"
-              >
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <line x1="22" y1="2" x2="11" y2="13" />
-                  <polygon points="22 2 15 22 11 13 2 9 22 2" />
-                </svg>
-              </button>
-            </div>
-          )}
+            {/* Free-text input */}
+            {(started || loading) && (
+              <div className="flex gap-2 max-w-xl mx-auto">
+                <input
+                  value={input}
+                  onChange={(e) => setInput(e.target.value)}
+                  onKeyDown={(e) => e.key === 'Enter' && handleSend()}
+                  placeholder={t.typeYourOwn}
+                  className="h2-input flex-1"
+                  disabled={loading}
+                />
+                <button
+                  onClick={handleSend}
+                  disabled={!input.trim() || loading}
+                  className="h2-cta"
+                  style={{ padding: '12px 18px' }}
+                  aria-label="Send"
+                >
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <line x1="22" y1="2" x2="11" y2="13" />
+                    <polygon points="22 2 15 22 11 13 2 9 22 2" />
+                  </svg>
+                </button>
+              </div>
+            )}
+
+            {/* Medical disclaimer */}
+            {started && (
+              <p className="text-xs text-center mt-3" style={{ color: 'var(--h2-muted-soft)', lineHeight: 1.6 }}>
+                {t.disclaimer}
+              </p>
+            )}
+          </div>
         </div>
       )}
     </div>
