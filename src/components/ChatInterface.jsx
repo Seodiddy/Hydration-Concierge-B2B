@@ -116,6 +116,8 @@ export default function ChatInterface({ language }) {
   const [sentReply, setSentReply] = useState('');
   const [input, setInput] = useState('');
   const [repliesVisible, setRepliesVisible] = useState(false);
+  const [textVisible, setTextVisible] = useState(false);
+  const prevMessageRef = useRef('');
 
   const messagesRef = useRef([]);
   const hasKickedOff = useRef(false);
@@ -197,6 +199,19 @@ export default function ChatInterface({ language }) {
     sendToAgent(kickoff);
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [language]);
+
+  // Fade-in when text first appears — mirrors B2C QuestionScreen behaviour
+  useEffect(() => {
+    if (!prevMessageRef.current && displayMessage) {
+      setTextVisible(false);
+      const to = setTimeout(() => setTextVisible(true), 40);
+      prevMessageRef.current = displayMessage;
+      return () => clearTimeout(to);
+    }
+    if (displayMessage) prevMessageRef.current = displayMessage;
+    if (!displayMessage) { prevMessageRef.current = ''; setTextVisible(false); }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [!!displayMessage]);
 
   useEffect(() => {
     if (quickReplies?.length > 0) {
@@ -281,7 +296,12 @@ export default function ChatInterface({ language }) {
                 </div>
               </div>
             ) : (
-              renderMessage(displayMessage)
+              <div
+                className="transition-opacity duration-300"
+                style={{ opacity: textVisible ? 1 : 0 }}
+              >
+                {renderMessage(displayMessage)}
+              </div>
             )}
           </div>
 
