@@ -235,13 +235,12 @@ export default function ChatInterface({ language }) {
   };
 
   const displayMessage = streamingText || currentMessage;
-  const isCompact = started;
 
   return (
     <div style={{ background: 'var(--h2-bg)', minHeight: '100vh' }}>
-      <HeroSection language={language} compact={isCompact} />
+      <HeroSection language={language} compact={false} />
 
-      <div className={`${isCompact ? 'pt-6 md:pt-10' : ''}`}>
+      <div className="pt-6 md:pt-10">
 
         {/* Message area */}
         <div
