@@ -16,6 +16,7 @@ import Anthropic from '@anthropic-ai/sdk';
 import { readFileSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { applyCors } from './_security.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const DATA_DIR = join(__dirname, '..', 'data');
@@ -54,11 +55,14 @@ function languageInstruction(lang) {
 
 // ---- Main handler ----
 export default async function handler(req, res) {
-  res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+  res.setHeader('X-Robots-Tag', 'noindex, nofollow');
 
-  if (req.method === 'OPTIONS') { res.status(204).end(); return; }
+  if (req.method === 'OPTIONS') {
+    if (!applyCors(req, res)) return;
+    res.status(204).end();
+    return;
+  }
+  if (!applyCors(req, res)) return;
   if (req.method !== 'POST') { res.status(405).json({ error: 'Method not allowed' }); return; }
   if (!process.env.ANTHROPIC_API_KEY) { res.status(500).json({ error: 'Server missing ANTHROPIC_API_KEY' }); return; }
 

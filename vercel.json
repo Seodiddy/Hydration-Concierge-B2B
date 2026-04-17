@@ -14,6 +14,12 @@
   ],
   "headers": [
     {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "X-Robots-Tag", "value": "noindex, nofollow" }
+      ]
+    },
+    {
       "source": "/api/chat",
       "headers": [
         { "key": "Cache-Control", "value": "no-cache, no-transform" },
