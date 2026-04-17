@@ -32,9 +32,11 @@ function parseAgentContent(content) {
   let quickReplies = [];
   const qrMatch = content.match(/<quick_replies>([\s\S]*?)<\/quick_replies>/i);
   if (qrMatch) {
-    quickReplies = qrMatch[1]
-      .trim()
-      .split(/\n+/)
+    const raw = qrMatch[1].trim();
+    // Support both newline-separated and pipe-separated formats
+    const hasPipe = raw.includes('|');
+    const items = hasPipe ? raw.split('|') : raw.split(/\n+/);
+    quickReplies = items
       .map((s) => s.trim())
       .filter((s) => s && !s.startsWith('<'));
   }
@@ -114,7 +116,6 @@ export default function ChatInterface({ language }) {
   const [sentReply, setSentReply] = useState('');
   const [input, setInput] = useState('');
   const [repliesVisible, setRepliesVisible] = useState(false);
-  const [msgVisible, setMsgVisible] = useState(false);
 
   const messagesRef = useRef([]);
   const hasKickedOff = useRef(false);
@@ -133,29 +134,25 @@ export default function ChatInterface({ language }) {
 
   const sendToAgent = async (messages) => {
     setLoading(true);
-    setMsgVisible(false);
     try {
       const fullText = await chatWithAdvisor(
         { messages, language },
         (partial) => {
           const parsed = parseAgentContent(partial);
-          if (parsed.message) {
-            setStreamingText(parsed.message);
-            setMsgVisible(true);
-          }
+          if (parsed.message) setStreamingText(parsed.message);
+          // Show quick replies as they stream in so UI feels responsive
+          if (parsed.quickReplies?.length > 0) setQuickReplies(parsed.quickReplies);
         }
       );
       messagesRef.current = [...messages, { role: 'assistant', content: fullText }];
       setStreamingText('');
       handleAgentResponse(fullText);
-      setMsgVisible(true);
     } catch (err) {
       console.error(err);
       setLoading(false);
       setStreamingText('');
       setCurrentMessage(t.errorRetry);
       setQuickReplies([t.retryLabel]);
-      setMsgVisible(true);
     }
   };
 
@@ -192,6 +189,7 @@ export default function ChatInterface({ language }) {
     setStarted(false);
     setLoading(false);
     messagesRef.current = [];
+
 
     hasKickedOff.current = true;
     const kickoff = [{ role: 'user', content: 'Hello' }];
@@ -242,9 +240,10 @@ export default function ChatInterface({ language }) {
 
       <div className="pt-6 md:pt-10">
 
-        {/* Message area */}
+        {/* Message area — always occupies space so page height is stable */}
         <div
-          className={`w-full max-w-4xl mx-auto px-4 md:px-6 pb-8 transition-opacity duration-300 ${msgVisible || loading ? 'opacity-100' : 'opacity-0'}`}
+          className="w-full max-w-4xl mx-auto px-4 md:px-6 pb-8"
+          style={{ minHeight: '55vh' }}
         >
           <div className="text-center mb-8">
             {loading && !streamingText ? (
