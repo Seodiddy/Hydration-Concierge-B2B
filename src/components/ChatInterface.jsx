@@ -106,9 +106,10 @@ export default function ChatInterface({ language }) {
   const t = I18N[language] || I18N.en;
 
   const [started, setStarted] = useState(false); // true after agent first replies
-  const [currentMessage, setCurrentMessage] = useState('');
+  // Hardcoded opening question shown immediately — no agent call needed
+  const [currentMessage, setCurrentMessage] = useState(() => (I18N[language] || I18N.en).openingQuestion);
   const [streamingText, setStreamingText] = useState('');
-  const [quickReplies, setQuickReplies] = useState([]);
+  const [quickReplies, setQuickReplies] = useState(() => (I18N[language] || I18N.en).openingOptions);
   const [showOrderCta, setShowOrderCta] = useState(false);
   const [recommendedProduct, setRecommendedProduct] = useState(null);
   const [productPrice, setProductPrice] = useState(null);
@@ -120,10 +121,8 @@ export default function ChatInterface({ language }) {
   const prevMessageRef = useRef('');
 
   const messagesRef = useRef([]);
-  const hasKickedOff = useRef(false);
 
   // Derived display value — defined early so useEffects below can reference it
-  // (re-assigned with same value near the return as well for readability)
   const displayMessage = streamingText || currentMessage;
 
   const handleAgentResponse = (fullText) => {
@@ -162,45 +161,20 @@ export default function ChatInterface({ language }) {
     }
   };
 
-  // Kick off the agent on mount (and whenever language changes)
+  // Reset to hardcoded opening question when language switches
   useEffect(() => {
-    if (hasKickedOff.current) return;
-    hasKickedOff.current = true;
-    setCurrentMessage('');
+    const tLang = I18N[language] || I18N.en;
+    setCurrentMessage(tLang.openingQuestion);
+    setQuickReplies(tLang.openingOptions);
     setStreamingText('');
-    setQuickReplies([]);
-    setShowOrderCta(false);
-    setRecommendedProduct(null);
-    setProductPrice(null);
-    setSentReply('');
-    setStarted(false);
-    messagesRef.current = [];
-
-    const kickoff = [{ role: 'user', content: 'Hello' }];
-    messagesRef.current = kickoff;
-    sendToAgent(kickoff);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
-  // Reset + re-kick when language changes
-  useEffect(() => {
-    hasKickedOff.current = false;
-    setCurrentMessage('');
-    setStreamingText('');
-    setQuickReplies([]);
     setShowOrderCta(false);
     setRecommendedProduct(null);
     setProductPrice(null);
     setSentReply('');
     setStarted(false);
     setLoading(false);
+    prevMessageRef.current = '';
     messagesRef.current = [];
-
-
-    hasKickedOff.current = true;
-    const kickoff = [{ role: 'user', content: 'Hello' }];
-    messagesRef.current = kickoff;
-    sendToAgent(kickoff);
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [language]);
 
@@ -239,7 +213,13 @@ export default function ChatInterface({ language }) {
     setShowOrderCta(false);
     setStreamingText('');
 
-    const msgs = [...messagesRef.current, { role: 'user', content: reply }];
+    // First reply: seed the conversation with the opening Q + user's answer
+    const isFirstReply = messagesRef.current.length === 0;
+    const msgs = isFirstReply
+      ? [
+          { role: 'user', content: `${t.openingQuestion} — ${reply}` },
+        ]
+      : [...messagesRef.current, { role: 'user', content: reply }];
     messagesRef.current = msgs;
     sendToAgent(msgs);
   };
