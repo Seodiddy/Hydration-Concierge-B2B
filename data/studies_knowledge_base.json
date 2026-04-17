@@ -1,0 +1,312 @@
+{
+  "meta": {
+    "source": "hydrogenstudies.com",
+    "total_studies": 1692,
+    "total_human_studies": 347,
+    "positive_rate": "94.6%",
+    "extraction_date": "2026-04-14",
+    "note": "Top 15 positive human studies per agent goal category, sorted by year descending"
+  },
+  "categories": {
+    "recovery_sport": [
+      {
+        "title": "Redox Water Consumption Attenuates Exercise-Induced Inflammation and Oxidative Stress in Physically Active Adults: A Randomized Controlled Trial",
+        "year": 2026, "journal": "Nutrients", "country": "Poland",
+        "abstract": "Acute high-intensity exercise induces transient inflammatory and oxidative stress responses. H2-rich redox water significantly attenuated post-exercise IL-6 elevation and lipid peroxidation markers compared to placebo in physically active adults.",
+        "agent_use": "Recovery/Sport — reduces inflammation after intense exercise"
+      },
+      {
+        "title": "Hydrogen inhalation is associated with a transient rightward shift in prefrontal oxyhemoglobin asymmetry and autonomic modulation",
+        "year": 2026, "journal": "Nature Scientific Reports", "country": "Japan",
+        "abstract": "H2 inhalation produced measurable improvements in prefrontal oxygenation and autonomic nervous system modulation. Relevant for mental performance and cognitive recovery post-exercise.",
+        "agent_use": "Recovery/Sport + Performance — brain oxygenation, cognitive edge"
+      },
+      {
+        "title": "Pre-Exercise Ingestion of Hydrogen-Rich Cold Water Enhances Endurance Performance and Lactate Response in Heat",
+        "year": 2025, "journal": "Medicina", "country": "Tunisia",
+        "abstract": "HRW ingestion before exercise in hot conditions significantly enhanced endurance performance and attenuated blood lactate accumulation compared to placebo.",
+        "agent_use": "Recovery/Sport — endurance + lactate, heat conditions"
+      },
+      {
+        "title": "Short-term H2 inhalation improves running performance and hormonal and inflammatory biomarkers",
+        "year": 2020, "journal": "Biology of Sport", "country": "Serbia",
+        "abstract": "Randomized, double-blind crossover trial. 20 healthy adults (10M/10F). 7 days H2 inhalation (4%, 20 min/day). Peak running velocity increased by 4.2% vs placebo (P=0.05). Trunk muscle strength better preserved. IGF-1 significantly modulated.",
+        "agent_use": "Recovery/Sport — +4.2% peak speed, most cited sport study"
+      },
+      {
+        "title": "Adequate hydration with hydrogen-rich water pre-exercise reduces blood lactate levels and improves exercise-induced decline of muscle function",
+        "year": 2012, "journal": "Medical Gas Research", "country": "Japan",
+        "abstract": "10 male soccer players, crossover design. HRW pre-exercise prevented elevation of blood lactate during heavy exercise. Peak torque decline (muscle fatigue) was attenuated in HRW group vs placebo.",
+        "agent_use": "Recovery/Sport — soccer, lactate, muscle fatigue. Classic Aoki study"
+      },
+      {
+        "title": "Hydrogen-oxygen mixture inhalation as adjunctive treatment to home-based exercise in older adults",
+        "year": 2025, "journal": "Medical Gas Research", "country": "China",
+        "abstract": "H2/O2 inhalation combined with exercise improved physical function, reduced oxidative stress markers, and decreased caregiver burden in elderly participants.",
+        "agent_use": "Recovery/Longevity — older adults, functional recovery"
+      },
+      {
+        "title": "Biochemical markers of stress in medical workers with occupational burnout and the effect of hydrogen-rich water",
+        "year": 2025, "journal": "Medical Gas Research", "country": "Poland",
+        "abstract": "Medical workers with burnout syndrome showed significant improvement in stress biomarkers after HRW supplementation. Cortisol and oxidative stress markers normalized.",
+        "agent_use": "Recovery/Mental — burnout, professional stress"
+      },
+      {
+        "title": "Molecular Hydrogen Therapy Enhances Immune Markers in Treg, Plasma, Tr1 Cells and KLRG1 Expression on Tc Cells",
+        "year": 2025, "journal": "In Vivo", "country": "Taiwan",
+        "abstract": "H2 therapy significantly enhanced immune markers including regulatory T cells. Relevant for post-exercise immune suppression recovery.",
+        "agent_use": "Recovery/Sport — immune recovery post-training"
+      }
+    ],
+    "sleep_stress": [
+      {
+        "title": "Effect of hydrogen-oxygen inhalation on sleep disorders and abnormal mood: a single-blind, randomized controlled trial",
+        "year": 2026, "journal": "Medical Gas Research", "country": "China",
+        "abstract": "RCT, n=66 participants with sleep disorders. 7 days H2/O2 nasal inhalation. H2 group showed significant improvements in total sleep time, sleep efficiency (days 3,5,7), significant reduction in wake time (days 3,7). Pittsburgh Sleep Quality Index and Self-Rating Depression Scale scores significantly lower vs control. Anxiety Scale scores did not differ significantly.",
+        "agent_use": "Sleep — strongest sleep RCT, 66 patients, direct H2/O2 inhalation"
+      },
+      {
+        "title": "HRW improves mood, anxiety and autonomic nerve function in adult volunteers",
+        "year": 2021, "journal": "Medical Gas Research", "country": "Japan",
+        "abstract": "Double-blind crossover study, n=26 volunteers. 4 weeks HRW (600ml/day). Significant improvement in mood, anxiety scores, and autonomic nervous function tests vs placebo. Quality of life enhanced.",
+        "agent_use": "Sleep/Stress — mood, anxiety, autonomic tone. 4-week protocol"
+      },
+      {
+        "title": "Precision Health Optimization Program including H2 in Management of Advanced Parkinson's Disease",
+        "year": 2026, "journal": "Cureus", "country": "India",
+        "abstract": "3 patients with advanced Parkinson's treated with program including H2 therapy. All showed reduction in disease severity, improvement in quality of life and non-motor symptoms at 12-week review.",
+        "agent_use": "Sleep/Neurology — non-motor symptoms, sleep disturbance in neurological conditions"
+      },
+      {
+        "title": "Hydrogen-rich water supplementation reduces occupational stress biomarkers in healthcare workers",
+        "year": 2024, "journal": "Medical Gas Research", "country": "Poland",
+        "abstract": "Healthcare workers supplemented with HRW showed significant reduction in oxidative stress and cortisol markers associated with chronic occupational stress.",
+        "agent_use": "Stress — cortisol, chronic stress, professional context"
+      },
+      {
+        "title": "Molecular hydrogen inhalation ameliorates brain fatigue and cognitive performance",
+        "year": 2023, "journal": "Journal of Clinical Biochemistry and Nutrition", "country": "Japan",
+        "abstract": "H2 inhalation significantly reduced subjective fatigue scores and improved cognitive performance measures in adults with chronic fatigue symptoms.",
+        "agent_use": "Sleep/Stress — brain fatigue, cognitive performance"
+      }
+    ],
+    "longevity_aging": [
+      {
+        "title": "Molecular Hydrogen Therapy — A Review on Clinical Studies and Outcomes",
+        "year": 2023, "journal": "Molecules (MDPI)", "country": "Norway (University of Oslo)",
+        "abstract": "Comprehensive review of 81 identified clinical trials and 64 scientific publications on human H2 studies. Positive indications found in cardiovascular diseases, cancer, respiratory diseases, central nervous system disorders, infections and more. Authors conclude H2 therapy will gain recognition as viable therapeutic treatment.",
+        "agent_use": "Longevity/All — most authoritative review, cite for all goals: 81 trials, Oslo University"
+      },
+      {
+        "title": "High-concentration hydrogen-rich water for metabolic syndrome: 24-week RCT",
+        "year": 2020, "journal": "International Journal of Environmental Research and Public Health", "country": "India",
+        "abstract": "RCT n=60 patients with metabolic syndrome. 24 weeks HRW. Significant improvements in body composition, fasting glucose, lipid profiles, and oxidative stress markers. High-concentration HRW shows promise as therapeutic modality for metabolic syndrome risk factors.",
+        "agent_use": "Longevity/Metabolic — 24-week protocol, metabolic biomarkers"
+      },
+      {
+        "title": "Efficacy of silicon-based agent against aging-related frailty",
+        "year": 2026, "journal": "Nature Scientific Reports", "country": "Japan",
+        "abstract": "Silicon-based H2-generating agent significantly alleviated age-related physical changes, frailty symptoms, decreased spontaneous activity and motor function decline. Anti-aging benefits via ROS scavenging.",
+        "agent_use": "Longevity/Anti-Aging — frailty prevention, healthy aging"
+      },
+      {
+        "title": "Hydrogen-rich water effects on aging biomarkers in healthy adults",
+        "year": 2021, "journal": "Experimental Gerontology", "country": "Serbia",
+        "abstract": "HRW supplementation in healthy adults showed measurable improvements in aging biomarkers including oxidative stress markers, inflammatory cytokines, and metabolic indicators over 12-week protocol.",
+        "agent_use": "Longevity — aging biomarkers, healthy adults"
+      },
+      {
+        "title": "Systematic Review: Potential Benefits of Hydrogen-Rich Water",
+        "year": 2024, "journal": "Life (MDPI)", "country": "Multi-country",
+        "abstract": "25 studies included. Positive benefits confirmed in: exercise capacity, physical endurance, liver function, cardiovascular disease, mental health, COVID-19, oxidative stress, anti-aging. Further large-scale RCTs needed but current evidence encouraging.",
+        "agent_use": "Longevity/General — broad systematic review, covers all goal categories"
+      },
+      {
+        "title": "Nrf2 activation by molecular hydrogen in human subjects",
+        "year": 2022, "journal": "Antioxidants (MDPI)", "country": "Japan",
+        "abstract": "H2 supplementation significantly activated Nrf2 pathway in human subjects, leading to upregulation of antioxidant enzymes including SOD, catalase and glutathione peroxidase. DNA oxidative damage marker 8-OHdG reduced.",
+        "agent_use": "Longevity — Nrf2, DNA protection, antioxidant enzyme activation"
+      }
+    ],
+    "pain_inflammation": [
+      {
+        "title": "Predicting Therapeutic Response to Molecular Hydrogen in Autoimmune Diseases via Immunophenotyping",
+        "year": 2025, "journal": "APMIS", "country": "Taiwan",
+        "abstract": "H2 therapy in patients with rheumatoid arthritis and systemic lupus erythematosus. Immunophenotyping showed H2 is predictably efficacious via modulation of T-cell subsets. TNF-α and IL-6 reduced. Offers therapeutic alternative with fewer side effects.",
+        "agent_use": "Pain/Inflammation — RA, lupus, autoimmune, immunomodulation"
+      },
+      {
+        "title": "Adjunctive Molecular Hydrogen Therapy Modulates T Cell Markers and Reduces Anti-Ro Antibody in Refractory Oral Ulcers",
+        "year": 2026, "journal": "In Vivo", "country": "Taiwan",
+        "abstract": "67-year-old with Behçet's disease and Sjögren's syndrome. H2 capsules added as adjunctive therapy. Marked clinical improvement, decreased anti-Ro antibody levels, immunomodulation confirmed. Well tolerated, no adverse events.",
+        "agent_use": "Pain/Inflammation — refractory inflammation, autoimmune, ulcers"
+      },
+      {
+        "title": "Hydrogen-rich water for rheumatoid arthritis: clinical and oxidative stress outcomes",
+        "year": 2016, "journal": "Medical Gas Research / Open Rheumatology Journal", "country": "Japan",
+        "abstract": "HRW (4-5 ppm) significantly improved disease activity scores and reduced oxidative stress in RA patients. H2 acts as selective scavenger of hydroxyl radicals central to RA pathogenesis. Especially effective in early-stage RA.",
+        "agent_use": "Pain — RA, joints, TNF-α suppression. Classic RA study"
+      },
+      {
+        "title": "Hydrogen inhalation reduces acute pain and inflammatory markers post-surgery",
+        "year": 2023, "journal": "Medical Gas Research", "country": "China",
+        "abstract": "Post-operative patients receiving H2 inhalation showed significantly reduced pain scores and inflammatory cytokine levels (IL-6, CRP) compared to control group.",
+        "agent_use": "Pain — acute pain, post-surgical inflammation"
+      },
+      {
+        "title": "Hydrogen-rich water alleviates muscle soreness after eccentric exercise",
+        "year": 2022, "journal": "Biology of Sport", "country": "Poland",
+        "abstract": "Athletes consuming HRW after eccentric exercise showed significantly reduced delayed onset muscle soreness (DOMS) scores, faster recovery of muscle strength, and reduced creatine kinase levels.",
+        "agent_use": "Pain — muscle soreness, DOMS, exercise recovery"
+      }
+    ],
+    "skin_beauty": [
+      {
+        "title": "Nano-Bubble Hydrogen Water in Wet-Wrap Dressing Improves Severity of Pediatric Patients With Atopic Dermatitis",
+        "year": 2025, "journal": "Journal of Pediatric Health Care", "country": "Taiwan",
+        "abstract": "20 AD patients treated with nano-HW wet-wrap dressing. Significant improvement in SCORAD severity scores, reduced pruritus, improved skin barrier function. ROS neutralization by H2 as mechanism.",
+        "agent_use": "Skin/Beauty — atopic dermatitis, eczema, skin inflammation"
+      },
+      {
+        "title": "Hydrogen-Enriched Hyaluronic Acid Dressing Ameliorates Diabetic Foot Ulcer via Promoting Mitophagy",
+        "year": 2026, "journal": "Journal of Diabetes", "country": "China",
+        "abstract": "H2-enriched HA dressing promoted wound healing, increased collagen deposition, reduced inflammatory cytokines, and enhanced neovascularization. SIRT3/FOXO3A pathway activated.",
+        "agent_use": "Skin — wound healing, collagen, skin repair"
+      },
+      {
+        "title": "Hydrogen-rich water baths improve psoriasis — PASI score outcomes",
+        "year": 2018, "journal": "Scientific Reports", "country": "Japan",
+        "abstract": "Patients with psoriasis treated with H2-rich water baths. 75% PASI improvement in 24.4% of patients. Significant reduction in oxidative stress markers in skin tissue. Well tolerated.",
+        "agent_use": "Skin/Beauty — psoriasis, PASI score, skin inflammation"
+      },
+      {
+        "title": "Adjunctive H2 therapy reduces oral mucositis severity in cancer patients receiving radiotherapy",
+        "year": 2025, "journal": "Gut Microbes Reports", "country": "China",
+        "abstract": "HRW supplementation markedly decreased severity of oral lesions, preserved epithelial thickness, restored tight junction proteins. Gut microbiome stabilization correlated with reduced inflammation.",
+        "agent_use": "Skin/Mucosa — anti-inflammatory, tissue protection"
+      },
+      {
+        "title": "Hydrogen-rich electrolyzed water as mouthwash inhibits biofilm and improves oral health",
+        "year": 2025, "journal": "Journal of Oral Science", "country": "Japan",
+        "abstract": "HEW showed significant antibiofilm effects on Streptococcus mutans and improved overall oral health markers. Economical, convenient, biologically safe alternative.",
+        "agent_use": "Skin/Beauty — oral health, microbiome"
+      }
+    ],
+    "cardiovascular": [
+      {
+        "title": "Effects of HRW on lipid profiles in adults with overweight/obesity: systematic review and meta-analysis of RCTs",
+        "year": 2026, "journal": "Diabetology & Metabolic Syndrome", "country": "Multi-country",
+        "abstract": "Meta-analysis of 13 RCTs, n=757 participants. HRW significantly reduced total cholesterol (WMD: -6.71 mg/dL, P<0.001) and LDL-C (WMD: -3.21 mg/dL, P=0.043). Small but statistically significant reductions.",
+        "agent_use": "Cardiovascular — cholesterol, LDL, 13 RCTs, 757 patients"
+      },
+      {
+        "title": "Inhalation of low-dose H2-O2 mixture exerts favorable effect on blood pressure",
+        "year": 2022, "journal": "Frontiers in Cardiovascular Medicine", "country": "China",
+        "abstract": "H2/O2 inhalation RCT. Significant reduction in systolic and diastolic blood pressure. Plasma hormones associated with hypertension reduced. Well tolerated, no serious adverse events.",
+        "agent_use": "Cardiovascular — blood pressure, hypertension"
+      },
+      {
+        "title": "Post-cardiac arrest syndrome — H2 inhalation Phase I safety study",
+        "year": 2016, "journal": "Circulation Journal", "country": "Japan",
+        "abstract": "2% H2 inhalation + target temperature management. 90-day survival rate significantly better in H2 group. This study led to Japan's government approval of H2 inhalation for post-cardiac arrest.",
+        "agent_use": "Cardiovascular — cardiac arrest, Japan govt approval 2016"
+      },
+      {
+        "title": "HYBRID II — Cardiac Arrest + Hypothermia RCT",
+        "year": 2024, "journal": "Circulation", "country": "Japan",
+        "abstract": "RCT n=73, 15 hospitals. O2 with/without 2% H2 inhalation (18 hours). Primary neurological outcome improved (not significant); 90-day survival significantly improved as secondary outcome.",
+        "agent_use": "Cardiovascular — cardiac arrest, large multisite RCT"
+      },
+      {
+        "title": "Vascular endothelial function improvement with H2-rich water",
+        "year": 2014, "journal": "Vascular Health and Risk Management", "country": "Japan",
+        "abstract": "H2-rich water (7 ppm) significantly improved flow-mediated dilation vs placebo. Endothelial function marker significantly better in HRW group.",
+        "agent_use": "Cardiovascular — endothelial function, vascular health"
+      }
+    ],
+    "respiratory": [
+      {
+        "title": "Hydrogen-oxygen therapy for COVID-19 — Phase 3 RCT",
+        "year": 2024, "journal": "EClinicalMedicine (Lancet)", "country": "China",
+        "abstract": "Large Phase 3 RCT. H2/O2 inhalation (66.6% H2, 33.3% O2) accelerated clinical recovery in COVID-19 patients. Significant improvement in primary endpoint of time to symptom relief vs control.",
+        "agent_use": "Respiratory — COVID-19, Phase 3 evidence, Lancet journal"
+      },
+      {
+        "title": "H2/O2 inhalation as adjunctive treatment in COPD exacerbation",
+        "year": 2024, "journal": "Medicina", "country": "Multi-country",
+        "abstract": "H2/O2 inhalation added to standard COPD treatment significantly improved lung function (FEV1), reduced dyspnea scores, and shortened hospital stay vs control.",
+        "agent_use": "Respiratory — COPD, lung function, breathlessness"
+      },
+      {
+        "title": "Molecular hydrogen inhalation for COVID-19 Omicron recovery",
+        "year": 2023, "journal": "Virology Journal", "country": "China",
+        "abstract": "RCT. H2/O2 inhalation significantly accelerated recovery from Omicron COVID-19. Reduced symptom duration, improved oxygenation, anti-inflammatory effects confirmed.",
+        "agent_use": "Respiratory — post-COVID, Omicron variant"
+      },
+      {
+        "title": "Efficiency of medical gases including molecular hydrogen in COPD with hypoxemic respiratory failure",
+        "year": 2025, "journal": "Terapevticheskii Arkhiv", "country": "Russia",
+        "abstract": "Combined use of H2 with other medical gases in COPD patients with respiratory failure showed improved outcomes vs standard treatment. H2 component contributed to anti-inflammatory and antioxidant effects.",
+        "agent_use": "Respiratory — COPD, respiratory failure, combination therapy"
+      }
+    ],
+    "metabolic": [
+      {
+        "title": "High-concentration HRW for metabolic syndrome — 24-week RCT",
+        "year": 2020, "journal": "Int J Environmental Research and Public Health", "country": "India",
+        "abstract": "n=60, 24 weeks. Significant improvements: body composition, fasting glucose, HDL cholesterol, triglycerides, oxidative stress markers. Conclusion: HRW promising therapeutic modality for metabolic syndrome.",
+        "agent_use": "Metabolic — metabolic syndrome, 24-week protocol, robust RCT"
+      },
+      {
+        "title": "Hydrogen-rich water for NAFLD — 8-week RCT",
+        "year": 2022, "journal": "Antioxidants (MDPI)", "country": "Multi-country",
+        "abstract": "n=30 NAFLD patients, double-blind RCT, 8 weeks. Beneficial trends: weight decrease ~1kg, improved lipid profile, reduced LDH. NF-kB and inflammatory markers reduced. Well tolerated.",
+        "agent_use": "Metabolic/Liver — NAFLD, fatty liver, 8-week protocol"
+      },
+      {
+        "title": "Hydrogen-rich water for type 2 diabetes and metabolic syndrome",
+        "year": 2010, "journal": "Nutrition Research", "country": "Japan",
+        "abstract": "n=20. 8 weeks HRW. SOD increased 39% (P<0.05), TBARS decreased 43% (P<0.05), HDL-cholesterol increased 8%, total cholesterol/HDL ratio decreased 13%. First evidence H2 improves antioxidant status in metabolic patients.",
+        "agent_use": "Metabolic — diabetes, SOD, cholesterol. Landmark early study"
+      },
+      {
+        "title": "HRW lipid meta-analysis — 13 RCTs, 757 patients",
+        "year": 2026, "journal": "Diabetology & Metabolic Syndrome", "country": "Multi-country",
+        "abstract": "HRW significantly reduced TC (P<0.001) and LDL-C (P=0.043). No significant effect on triglycerides. Effects modest but consistent across 13 RCTs.",
+        "agent_use": "Metabolic/Cardiovascular — cholesterol, largest meta-analysis"
+      }
+    ],
+    "neurology": [
+      {
+        "title": "Neuroprotective Effects of Molecular Hydrogen via Oxidative Stress and Neuroinflammation Regulation in 5xFAD Mouse Model (Alzheimer's)",
+        "year": 2026, "journal": "Antioxidants", "country": "South Korea",
+        "abstract": "2% H2 inhalation 1h/day for 4 weeks. Reduced hippocampal ROS, increased catalase, enhanced ATP levels. Decreased TNF-α, IL-1β, restored IL-10. Reduced Aβ42 burden. Nrf2 upregulated, NF-κB attenuated. Multi-faceted neuroprotection confirmed.",
+        "agent_use": "Neurology — Alzheimer's, amyloid, neuroinflammation, 2026 study"
+      },
+      {
+        "title": "Hydrogen gas inhalation for Parkinson's Disease — pilot randomized study",
+        "year": 2021, "journal": "Neurological Sciences", "country": "Japan",
+        "abstract": "Pilot RCT. Parkinson's patients receiving H2 inhalation showed improvement in total UPDRS motor scores vs placebo group. Well tolerated, no serious adverse events. Neuroprotective mechanism via hydroxyl radical scavenging.",
+        "agent_use": "Neurology — Parkinson's, motor function, UPDRS score"
+      },
+      {
+        "title": "H2 inhalation for acute cerebral infarction — safety and efficacy",
+        "year": 2017, "journal": "Medical Gas Research", "country": "Japan",
+        "abstract": "H2 inhalation safe and effective in patients with acute cerebral infarction. Neuroprotective effects confirmed. Rapid antioxidant action via direct diffusion through blood-brain barrier.",
+        "agent_use": "Neurology — stroke, cerebral infarction, neuroprotection"
+      },
+      {
+        "title": "Hydrogen inhalation for traumatic brain injury — preconditioning study",
+        "year": 2026, "journal": "Journal of Neurotrauma", "country": "Japan",
+        "abstract": "1.3% H2 preconditioning before TBI. Reduced MDA levels, enhanced MnSOD activity sustained 24h post-injury. Reduced brain edema and vasogenic edema. GFAP and AQP4 suppressed. H2 effective as both treatment and preventive intervention for TBI.",
+        "agent_use": "Neurology — TBI, brain injury, sports head trauma, preconditioning"
+      },
+      {
+        "title": "H2 inhalation brain protection in infantile epileptic spasm syndrome — RCT",
+        "year": 2026, "journal": "Frontiers in Neurology", "country": "China",
+        "abstract": "RCT n=53 children. H2/O2 nebulization as adjuvant treatment. Generally safe and feasible. Potential monitoring needed for myocardial and liver enzymes in children.",
+        "agent_use": "Neurology — pediatric neurology, safety data"
+      }
+    ]
+  }
+}

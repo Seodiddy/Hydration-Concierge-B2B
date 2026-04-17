@@ -1,0 +1,207 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── Light theme (default) — Hydration H2 master brand with Cryodukt-style Teal ─── */
+:root {
+  /* Accent (overridable per operator) */
+  --h2-primary: #3FB8C8;           /* Cryodukt Teal default */
+  --h2-primary-darker: #2FA5B5;
+  --h2-primary-lighter: #B8E4EB;
+
+  /* Surfaces */
+  --h2-bg: #F7FAFC;                /* page background (off-white slate-50) */
+  --h2-bg-soft: #EDF5F7;           /* soft teal-tinted alt bg for cards */
+  --h2-surface: #FFFFFF;           /* cards / panels */
+  --h2-surface-alt: #F1F5F9;       /* subtle input background */
+
+  /* Text */
+  --h2-text: #0F172A;              /* slate-900 */
+  --h2-text-soft: #334155;         /* slate-700 */
+  --h2-muted: #64748B;             /* slate-500 */
+  --h2-muted-soft: #94A3B8;        /* slate-400 */
+
+  /* Borders */
+  --h2-border: rgba(15, 23, 42, 0.08);
+  --h2-border-strong: rgba(15, 23, 42, 0.14);
+}
+
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  background: var(--h2-bg);
+  color: var(--h2-text);
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ─── Scrollbars ─── */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(15, 23, 42, 0.15);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(15, 23, 42, 0.25);
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* ─── Pill buttons (goals, quick-replies, profile options) ─── */
+.h2-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 26px;
+  border-radius: 999px;
+  border: 1px solid var(--h2-border-strong);
+  background: var(--h2-surface);
+  color: var(--h2-text-soft);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.25;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  -webkit-tap-highlight-color: transparent;
+  text-align: center;
+}
+.h2-pill:hover:not(:disabled),
+.h2-pill:focus-visible:not(:disabled) {
+  background: color-mix(in srgb, var(--h2-primary) 10%, var(--h2-surface));
+  border-color: var(--h2-primary);
+  color: var(--h2-primary-darker);
+  outline: none;
+  transform: translateY(-1px);
+}
+.h2-pill:active:not(:disabled) {
+  transform: translateY(0);
+}
+.h2-pill--lg {
+  padding: 18px 32px;
+  font-size: 15px;
+  font-weight: 600;
+}
+.h2-pill--primary {
+  background: var(--h2-primary);
+  border-color: var(--h2-primary);
+  color: #fff;
+}
+.h2-pill--primary:hover:not(:disabled) {
+  background: var(--h2-primary-darker);
+  border-color: var(--h2-primary-darker);
+  color: #fff;
+}
+
+/* Fallback for browsers without color-mix() */
+@supports not (color: color-mix(in srgb, red, blue)) {
+  .h2-pill:hover:not(:disabled),
+  .h2-pill:focus-visible:not(:disabled) {
+    background: var(--h2-primary-lighter);
+  }
+}
+
+/* ─── Card surface ─── */
+.h2-card {
+  background: var(--h2-surface);
+  border: 1px solid var(--h2-border);
+  border-radius: 20px;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04), 0 8px 24px rgba(15, 23, 42, 0.04);
+}
+
+/* ─── Primary CTA button ─── */
+.h2-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 16px 28px;
+  border-radius: 14px;
+  background: var(--h2-primary);
+  color: #fff;
+  font-weight: 600;
+  font-size: 15px;
+  letter-spacing: 0.01em;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 12px rgba(63, 184, 200, 0.25);
+}
+.h2-cta:hover:not(:disabled) {
+  background: var(--h2-primary-darker);
+  box-shadow: 0 6px 16px rgba(63, 184, 200, 0.35);
+  transform: translateY(-1px);
+}
+.h2-cta:active:not(:disabled) {
+  transform: translateY(0);
+}
+.h2-cta:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+/* ─── Input fields ─── */
+.h2-input {
+  width: 100%;
+  padding: 12px 16px;
+  border-radius: 12px;
+  border: 1px solid var(--h2-border-strong);
+  background: var(--h2-surface-alt);
+  color: var(--h2-text);
+  font-size: 15px;
+  outline: none;
+  transition: all 0.15s ease;
+}
+.h2-input:focus {
+  border-color: var(--h2-primary);
+  background: var(--h2-surface);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--h2-primary) 15%, transparent);
+}
+.h2-input::placeholder {
+  color: var(--h2-muted-soft);
+}
+
+/* ─── Animations ─── */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes dotPulse {
+  0%, 80%, 100% { opacity: 0.3; transform: scale(0.85); }
+  40% { opacity: 1; transform: scale(1); }
+}
+.h2-fade-in {
+  animation: fadeIn 0.4s ease-out both;
+}
+.h2-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--h2-primary);
+  animation: dotPulse 1.4s ease-in-out infinite;
+  display: inline-block;
+}
+
+/* ─── Headline word rotation ─── */
+.h2-rotating-word {
+  display: inline-block;
+  transition: opacity 500ms ease, transform 500ms ease;
+}
+
+/* ─── Markdown bold inside streamed text ─── */
+.h2-prose strong {
+  color: var(--h2-text);
+  font-weight: 600;
+}
