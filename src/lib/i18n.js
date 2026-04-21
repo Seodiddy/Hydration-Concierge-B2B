@@ -3,7 +3,7 @@
 
 export const I18N = {
   en: {
-    heroWords: ['Invest.', 'Recover.', 'Compound.'],
+    heroWords: ['Upgrade.', 'Recovery.', 'Performance.'],
     heroTagline: 'MOLECULAR HYDROGEN · BACKED BY SCIENCE',
     heroSubline: 'Your H2 device advisor.',
     openingQuestion: 'Have you come across molecular hydrogen before, or is this new to you?',
@@ -19,7 +19,7 @@ export const I18N = {
       'H₂ inhalation devices are wellness products. Not intended to diagnose, treat, cure, or prevent any disease. Individual results may vary. Consult your healthcare provider for medical conditions.',
   },
   de: {
-    heroWords: ['Investieren.', 'Erholen.', 'Aufbauen.'],
+    heroWords: ['Differenzieren.', 'Regenerieren.', 'Skalieren.'],
     heroTagline: 'MOLEKULARER WASSERSTOFF · WISSENSCHAFTLICH FUNDIERT',
     heroSubline: 'Dein H2-Geräteberater.',
     openingQuestion: 'Wie vertraut sind Sie mit molekularem Wasserstoff — oder begegnet Ihnen das Konzept heute zum ersten Mal?',
@@ -35,7 +35,7 @@ export const I18N = {
       'H₂-Inhalationsgeräte sind Wellness-Produkte. Nicht zur Diagnose, Behandlung, Heilung oder Vorbeugung von Krankheiten. Individuelle Ergebnisse können variieren. Bei medizinischen Fragen bitte Ärztin oder Arzt konsultieren.',
   },
   es: {
-    heroWords: ['Invertir.', 'Recuperar.', 'Crecer.'],
+    heroWords: ['Diferénciate.', 'Recupérate.', 'Escala.'],
     heroTagline: 'HIDRÓGENO MOLECULAR · AVALADO POR LA CIENCIA',
     heroSubline: 'Tu asesor de dispositivos H2.',
     openingQuestion: '¿Estás familiarizado con el hidrógeno molecular, o es la primera vez que te encuentras con este concepto?',
@@ -51,7 +51,7 @@ export const I18N = {
       'Los dispositivos de inhalación de H₂ son productos de bienestar. No están destinados a diagnosticar, tratar, curar o prevenir enfermedades. Los resultados individuales pueden variar.',
   },
   fr: {
-    heroWords: ['Investir.', 'Récupérer.', 'Progresser.'],
+    heroWords: ['Différenciez.', 'Régénérez.', 'Progressez.'],
     heroTagline: 'HYDROGÈNE MOLÉCULAIRE · SOUTENU PAR LA SCIENCE',
     heroSubline: 'Votre conseiller en dispositifs H2.',
     openingQuestion: 'Connaissez-vous déjà l\'hydrogène moléculaire, ou est-ce un concept nouveau pour vous ?',
