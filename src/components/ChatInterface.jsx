@@ -111,6 +111,7 @@ export default function ChatInterface({ language }) {
   const [streamingText, setStreamingText] = useState('');
   const [quickReplies, setQuickReplies] = useState(() => (I18N[language] || I18N.en).openingOptions);
   const [showOrderCta, setShowOrderCta] = useState(false);
+  const [ctaReady, setCtaReady] = useState(false); // true only after user clicks "view recommendation"
   const [recommendedProduct, setRecommendedProduct] = useState(null);
   const [productPrice, setProductPrice] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -171,6 +172,7 @@ export default function ChatInterface({ language }) {
     setQuickReplies(tLang.openingOptions);
     setStreamingText('');
     setShowOrderCta(false);
+    setCtaReady(false);
     setRecommendedProduct(null);
     setProductPrice(null);
     setSentReply('');
@@ -214,6 +216,7 @@ export default function ChatInterface({ language }) {
     setCurrentMessage('');
     setQuickReplies([]);
     setShowOrderCta(false);
+    setCtaReady(false);
     setStreamingText('');
 
     // First reply: seed the conversation with the opening Q + user's answer
@@ -241,7 +244,7 @@ export default function ChatInterface({ language }) {
       {/* ── B2C-identical spacing: pt-6/pt-10 · mb-8 text · mt-4 replies ── */}
       <div className="pt-6 md:pt-10">
 
-        {showOrderCta && !loading ? (
+        {showOrderCta && ctaReady && !loading ? (
           <DeviceOrderCTA
             language={language}
             quickReplies={quickReplies}
@@ -311,8 +314,20 @@ export default function ChatInterface({ language }) {
               </div>
             )}
 
+            {/* "View recommendation" button — shown after agent finishes, before CTA screen */}
+            {!loading && showOrderCta && !ctaReady && (
+              <div className="w-full max-w-3xl mx-auto mt-6 flex justify-center">
+                <button
+                  onClick={() => setCtaReady(true)}
+                  className="h2-cta px-8 py-3 text-base font-semibold rounded-2xl"
+                >
+                  {t.viewRecommendation}
+                </button>
+              </div>
+            )}
+
             {/* Free-text only (no quick replies) */}
-            {!loading && quickReplies?.length === 0 && displayMessage && (
+            {!loading && quickReplies?.length === 0 && displayMessage && !showOrderCta && (
               <div className="flex gap-2 max-w-xl mx-auto mt-4">
                 <input
                   value={input}
