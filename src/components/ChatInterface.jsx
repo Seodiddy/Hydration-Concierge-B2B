@@ -129,7 +129,10 @@ export default function ChatInterface({ language }) {
     const { message, quickReplies: qr, showOrderCta: orderCta, recommendedProduct: prod, productPrice: price } = parseAgentContent(fullText);
     setCurrentMessage(message);
     setQuickReplies(qr);
-    setShowOrderCta(orderCta);
+    // Guard: only allow the CTA screen after at least 4 messages (2 full exchanges).
+    // This prevents the agent from jumping to the product screen too early.
+    const enoughExchanges = messagesRef.current.length >= 4;
+    setShowOrderCta(orderCta && enoughExchanges);
     if (prod) setRecommendedProduct(prod);
     if (price) setProductPrice(price);
     setSentReply('');
