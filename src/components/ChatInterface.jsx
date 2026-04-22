@@ -120,6 +120,7 @@ export default function ChatInterface({ language }) {
   const [repliesVisible, setRepliesVisible] = useState(false);
   const [textVisible, setTextVisible] = useState(false);
   const prevMessageRef = useRef('');
+  const prevStreamingRef = useRef(false);
 
   const messagesRef = useRef([]);
 
@@ -184,7 +185,7 @@ export default function ChatInterface({ language }) {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [language]);
 
-  // Fade-in when text first appears — mirrors B2C QuestionScreen behaviour
+  // Fade-in when text first appears
   useEffect(() => {
     if (!prevMessageRef.current && displayMessage) {
       setTextVisible(false);
@@ -196,6 +197,18 @@ export default function ChatInterface({ language }) {
     if (!displayMessage) { prevMessageRef.current = ''; setTextVisible(false); }
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [!!displayMessage]);
+
+  // Cross-fade when streaming ends → formatted final text appears smoothly
+  useEffect(() => {
+    const wasStreaming = prevStreamingRef.current;
+    const isStreaming = !!streamingText;
+    prevStreamingRef.current = isStreaming;
+    if (wasStreaming && !isStreaming && currentMessage) {
+      setTextVisible(false);
+      const to = setTimeout(() => setTextVisible(true), 180);
+      return () => clearTimeout(to);
+    }
+  }, [streamingText, currentMessage]);
 
   useEffect(() => {
     if (quickReplies?.length > 0) {
@@ -279,11 +292,12 @@ export default function ChatInterface({ language }) {
                   </div>
                 </div>
               ) : (
-                // Same simple block for both streaming and final state —
-                // no reformatting on completion = no layout jump.
-                <h2 className="text-xl md:text-2xl font-medium leading-snug max-w-2xl mx-auto h2-prose" style={{ color: 'var(--h2-text)', opacity: textVisible ? 1 : 0, transition: 'opacity 0.3s' }}>
-                  <MarkdownText>{displayMessage}</MarkdownText>
-                </h2>
+                // renderMessage for both streaming and final — same function,
+                // no format switch. Cross-fade effect handles the streaming→final
+                // transition smoothly (textVisible goes false→true over 180ms).
+                <div className="transition-opacity duration-300" style={{ opacity: textVisible ? 1 : 0 }}>
+                  {renderMessage(displayMessage)}
+                </div>
               )}
             </div>
 
