@@ -278,17 +278,12 @@ export default function ChatInterface({ language }) {
                     <span className="h2-dot" style={{ animationDelay: '0.3s' }} />
                   </div>
                 </div>
-              ) : streamingText ? (
-                // While streaming: stable simple block — no regex heading/body split
-                // which would cause layout jumps as each new token arrives.
-                <h2 className="text-xl md:text-2xl font-medium leading-snug max-w-2xl mx-auto h2-prose" style={{ color: 'var(--h2-text)' }}>
-                  <MarkdownText>{streamingText}</MarkdownText>
-                </h2>
               ) : (
-                // Final message: full renderMessage formatting with fade-in
-                <div className="transition-opacity duration-300" style={{ opacity: textVisible ? 1 : 0 }}>
-                  {renderMessage(currentMessage)}
-                </div>
+                // Same simple block for both streaming and final state —
+                // no reformatting on completion = no layout jump.
+                <h2 className="text-xl md:text-2xl font-medium leading-snug max-w-2xl mx-auto h2-prose" style={{ color: 'var(--h2-text)', opacity: textVisible ? 1 : 0, transition: 'opacity 0.3s' }}>
+                  <MarkdownText>{displayMessage}</MarkdownText>
+                </h2>
               )}
             </div>
 
