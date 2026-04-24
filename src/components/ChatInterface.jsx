@@ -301,32 +301,18 @@ export default function ChatInterface({ language }) {
               )}
             </div>
 
-            {/* Quick replies — identical to B2C QuestionScreen */}
+            {/* Quick replies — pills only, input is now always shown below */}
             {!loading && quickReplies?.length > 0 && (
               <div
                 className="w-full max-w-3xl mx-auto mt-4 transition-all duration-500"
                 style={{ opacity: repliesVisible ? 1 : 0, transform: repliesVisible ? 'translateY(0)' : 'translateY(12px)' }}
               >
-                <div className="flex flex-wrap justify-center gap-3 mb-5">
+                <div className="flex flex-wrap justify-center gap-3">
                   {quickReplies.map((reply, idx) => (
                     <button key={`${reply}-${idx}`} onClick={() => handleReply(reply)} className="h2-pill">
                       {reply}
                     </button>
                   ))}
-                </div>
-                <div className="flex gap-2 max-w-xl mx-auto">
-                  <input
-                    value={input}
-                    onChange={(e) => setInput(e.target.value)}
-                    onKeyDown={(e) => e.key === 'Enter' && handleSend()}
-                    placeholder={t.typeYourOwn}
-                    className="h2-input flex-1"
-                  />
-                  <button onClick={handleSend} disabled={!input.trim()} className="h2-cta" style={{ padding: '12px 18px' }} aria-label="Send">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      <line x1="22" y1="2" x2="11" y2="13" /><polygon points="22 2 15 22 11 13 2 9 22 2" />
-                    </svg>
-                  </button>
                 </div>
               </div>
             )}
@@ -343,8 +329,9 @@ export default function ChatInterface({ language }) {
               </div>
             )}
 
-            {/* Free-text only (no quick replies) */}
-            {!loading && quickReplies?.length === 0 && displayMessage && !showOrderCta && (
+            {/* Free-text input — always visible while not loading and a message is shown,
+                regardless of whether quick replies or the CTA button are present. */}
+            {!loading && displayMessage && (
               <div className="flex gap-2 max-w-xl mx-auto mt-4">
                 <input
                   value={input}

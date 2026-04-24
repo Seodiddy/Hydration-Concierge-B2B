@@ -12,7 +12,10 @@ const EXTRA_ORIGINS = (process.env.ALLOWED_ORIGINS || '')
 
 // Always allowed: the production deploy + any preview deploy of this project.
 const VERCEL_PREVIEW_RE = /^https:\/\/hydration-concierge-b2[a-z0-9-]*\.vercel\.app$/;
-const ALWAYS_ALLOWED = ['https://hydration-concierge-b2-b.vercel.app'];
+const ALWAYS_ALLOWED = [
+  'https://hydration-concierge-b2-b.vercel.app',
+  'https://concierge.hydration-h2.com',
+];
 
 export function isOriginAllowed(origin) {
   if (!origin) return false; // block direct API calls without Origin header (e.g. curl)
